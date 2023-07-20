@@ -1,0 +1,25 @@
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modApi "dev.architectury:architectury:${architectury_version}"
+}
+
+base {
+    archivesName = archives_base_name + "Common-" + mod_version
+}
+
+
+architectury {
+    common("fabric", "forge")
+}
+
+publishing {
+    publications {
+        mavenCommon(MavenPublication) {
+            artifactId = mod_name
+            from components.java
+        }
+    }
+
+    repositories {
+    }
+}

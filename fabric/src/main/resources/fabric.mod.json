@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "example",
+  "version": "${mod_version}",
+
+  "name": "${mod_name}",
+  "description": "Example for create mods on Architectury",
+  "authors": ["TonimatasDEV"],
+  "contact": {},
+
+  "license": "${mod_license}",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {},
+  "mixins": [
+    "example.mixins.json",
+    "example-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "${fabric_loader_range}",
+    "minecraft": "${fabric_minecraft_version_range}"
+  }
+}
