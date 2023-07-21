@@ -1,4 +1,4 @@
-package net.tonimatasdev.architectury;
+package example.example.example;
 
 public class Example
 {
