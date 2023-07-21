@@ -31,8 +31,10 @@ dependencies {
 }
 
 processResources {
-    var replaceProperties = [mod_version: mod_version, mod_name: mod_name, mod_license: mod_license,
-                             fabric_loader_range: fabric_loader_range, fabric_minecraft_version_range: fabric_minecraft_version_range]
+    var replaceProperties = [
+            mod_version: mod_version, mod_name: mod_name, mod_license: mod_license, mod_issueTracker: mod_issueTracker,
+            fabric_loader_range: fabric_loader_range, fabric_minecraft_version_range: fabric_minecraft_version_range,
+            mod_author: mod_author, mod_description: mod_description]
     inputs.properties replaceProperties
 
     filesMatching("fabric.mod.json") {

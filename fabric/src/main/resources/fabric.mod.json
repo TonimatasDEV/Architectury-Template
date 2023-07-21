@@ -4,9 +4,11 @@
   "version": "${mod_version}",
 
   "name": "${mod_name}",
-  "description": "Example for create mods on Architectury",
-  "authors": ["TonimatasDEV"],
-  "contact": {},
+  "description": "${mod_description}",
+  "authors": ["${mod_author}"],
+  "contact": {
+    "homepage": "${mod_issueTracker}"
+  },
 
   "license": "${mod_license}",
   "icon": "icon.png",
