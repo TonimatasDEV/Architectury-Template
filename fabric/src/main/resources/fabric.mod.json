@@ -21,6 +21,7 @@
   ],
   "depends": {
     "fabricloader": "${fabric_loader_range}",
-    "minecraft": "${fabric_minecraft_version_range}"
+    "minecraft": "${fabric_minecraft_version_range}",
+    "architectury": "${fabric_architectury_version_range}"
   }
 }

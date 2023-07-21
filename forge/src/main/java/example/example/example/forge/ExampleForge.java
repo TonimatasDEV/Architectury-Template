@@ -10,6 +10,6 @@ public class ExampleForge {
     public ExampleForge() {
 		// Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(Example.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
-            Example.init();
+        Example.init();
     }
 }

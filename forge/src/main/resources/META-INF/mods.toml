@@ -24,9 +24,17 @@ ${mod_description}
    versionRange="${forge_loader_range}"
    ordering="NONE"
    side="BOTH"
+
 [[dependencies.example]]
    modId="minecraft"
    mandatory=true
    versionRange="${forge_minecraft_version_range}"
    ordering="NONE"
    side="BOTH"
+
+[[dependencies.example]]
+   modId = "architectury"
+   mandatory = true
+   versionRange = "${forge_architectury_version_range}"
+   ordering = "NONE"
+   side = "BOTH"
