@@ -23,7 +23,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
 
     // Dependencies (OPTIONAL)
-    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}" // Fabric API
+    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}+${minecraft_version}" // Fabric API
     modApi "dev.architectury:architectury-fabric:${architectury_version}" // Architectury
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
