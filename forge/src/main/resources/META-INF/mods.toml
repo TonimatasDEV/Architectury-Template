@@ -1,40 +1,40 @@
 modLoader="javafml"
-loaderVersion="${forge_loader_range}"
+loaderVersion="${forgeLoaderRange}"
 license="MIT"
-issueTrackerURL="${mod_issueTracker}"
+issueTrackerURL="${modIssueTracker}"
 
 [[mods]]
 modId="example"
-version="${mod_version}"
-displayName="${mod_name}"
+version="${modVersion}"
+displayName="${modName}"
 #updateJSONURL="http://myurl.me/"
 displayURL="https://example.example"
-logoFile="icon.png"
+#logoFile="icon.png"
 #credits="Thanks for this example mod goes to Java"
-authors="${mod_author}"
+authors="${modAuthor}"
 #displayTest="MATCH_VERSION"
 
 description='''
-${mod_description}
+${modDescription}
 '''
 
 [[dependencies.example]]
    modId="forge"
    mandatory=true
-   versionRange="${forge_loader_range}"
+   versionRange="${forgeLoaderRange}"
    ordering="NONE"
    side="BOTH"
 
 [[dependencies.example]]
    modId="minecraft"
    mandatory=true
-   versionRange="${forge_minecraft_version_range}"
+   versionRange="${forgeMinecraftVersionRange}"
    ordering="NONE"
    side="BOTH"
 
 [[dependencies.example]]
    modId = "architectury"
    mandatory = true
-   versionRange = "${forge_architectury_version_range}"
+   versionRange = "${forgeArchitecturyVersionRange}"
    ordering = "NONE"
    side = "BOTH"
