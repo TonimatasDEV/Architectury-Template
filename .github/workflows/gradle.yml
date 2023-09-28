@@ -29,13 +29,3 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
-
-      - uses: actions/upload-artifact@v3.1.2
-        with:
-          name: PotionTimeStacker-Forge
-          path: forge/build/libs/**.jar
-
-      - uses: actions/upload-artifact@v3.1.2
-        with:
-          name: PotionTimeStacker-Fabric
-          path: fabric/build/libs/**.jar
