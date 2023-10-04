@@ -14,7 +14,11 @@
   "icon": "icon.png",
 
   "environment": "*",
-  "entrypoints": {},
+  "entrypoints": {
+    "main": ["example.example.example.fabric.ExampleFabric"],
+    "client": ["example.example.example.fabric.ExampleClientFabric"],
+    "server": ["example.example.example.fabric.ExampleServerFabric"]
+  },
   "mixins": [
     "example-fabric.mixins.json",
     "example-common.mixins.json"
