@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION", "HasPlatformType")
+
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import net.fabricmc.loom.task.RemapJarTask
 import org.gradle.api.component.AdhocComponentWithVariants
@@ -13,9 +15,7 @@ architectury {
 
 val minecraftVersion: String by extra
 val fabricApiVersion: String by extra
-val architecturyVersion: String by extra
 val fabricLoaderVersion: String by extra
-val fabricArchitecturyVersionRange: String by extra
 val fabricLoaderRange: String by extra
 val fabricMinecraftVersionRange: String by extra
 val modVersion: String by extra
@@ -37,7 +37,6 @@ dependencies {
 
     // Dependencies (OPTIONAL)
     modApi("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion+$minecraftVersion") // Fabric API
-    modApi("dev.architectury:architectury-fabric:$architecturyVersion") // Architectury
 
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionFabric")) { isTransitive = false }
@@ -47,7 +46,7 @@ tasks.withType<ProcessResources> {
     val replaceProperties = mapOf(
             "modVersion" to modVersion, "modName" to modName, "modLicense" to modLicense, "modIssueTracker" to modIssueTracker,
             "fabricLoaderRange" to fabricLoaderRange, "fabricMinecraftVersionRange" to fabricMinecraftVersionRange,
-            "modAuthor" to modAuthor, "modDescription" to modDescription, "fabricArchitecturyVersionRange" to fabricArchitecturyVersionRange)
+            "modAuthor" to modAuthor, "modDescription" to modDescription)
 
     inputs.properties(replaceProperties)
 

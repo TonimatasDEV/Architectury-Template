@@ -8,3 +8,5 @@
 /fabric/build/
 /forge/.gradle/
 /forge/build/
+/neoforge/.gradle/
+/neoforge/build/

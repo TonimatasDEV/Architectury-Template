@@ -8,9 +8,9 @@ plugins {
 }
 
 val minecraftVersion: String by extra
-val forgeVersion: String by extra
-val forgeLoaderRange: String by extra
-val forgeMinecraftVersionRange: String by extra
+val neoforgeVersion: String by extra
+val neoforgeLoaderRange: String by extra
+val neoforgeMinecraftVersionRange: String by extra
 val modVersion: String by extra
 val modName: String by extra
 val modLicense: String by extra
@@ -20,14 +20,7 @@ val modDescription: String by extra
 
 architectury {
     platformSetupLoomIde()
-    forge()
-}
-
-loom {
-    forge {
-        mixinConfig("example-common.mixins.json")
-        mixinConfig("example-forge.mixins.json")
-    }
+    neoForge()
 }
 
 val common by configurations.creating
@@ -35,10 +28,14 @@ val shadowCommon by configurations.creating
 
 configurations["compileClasspath"].extendsFrom(common)
 configurations["runtimeClasspath"].extendsFrom(common)
-configurations["developmentForge"].extendsFrom(common)
+configurations["developmentNeoForge"].extendsFrom(common)
+
+repositories {
+    maven(url = "https://maven.neoforged.net/")
+}
 
 dependencies {
-    forge("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
+    neoForge("net.neoforged:neoforge:$neoforgeVersion")
 
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionForge")) { isTransitive = false }
@@ -46,9 +43,9 @@ dependencies {
 
 tasks.withType<ProcessResources> {
     val replaceProperties = mapOf(
-            "modVersion" to modVersion, "modName" to modName, "modLicense" to modLicense, "modIssueTracker" to modIssueTracker,
-            "forgeLoaderRange" to forgeLoaderRange, "forgeMinecraftVersionRange" to forgeMinecraftVersionRange,
-            "modAuthor" to modAuthor, "modDescription" to modDescription)
+        "modVersion" to modVersion, "modName" to modName, "modLicense" to modLicense, "modIssueTracker" to modIssueTracker,
+        "neoforgeLoaderRange" to neoforgeLoaderRange, "neoforgeMinecraftVersionRange" to neoforgeMinecraftVersionRange,
+        "modAuthor" to modAuthor, "modDescription" to modDescription)
     inputs.properties(replaceProperties)
 
     filesMatching("META-INF/mods.toml") {

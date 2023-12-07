@@ -25,7 +25,6 @@
   ],
   "depends": {
     "fabricloader": "${fabricLoaderRange}",
-    "minecraft": "${fabricMinecraftVersionRange}",
-    "architectury": "${fabricArchitecturyVersionRange}"
+    "minecraft": "${fabricMinecraftVersionRange}"
   }
 }
