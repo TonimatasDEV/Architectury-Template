@@ -38,7 +38,7 @@ dependencies {
     neoForge("net.neoforged:neoforge:$neoforgeVersion")
 
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
-    shadowCommon(project(path = ":common", configuration = "transformProductionForge")) { isTransitive = false }
+    shadowCommon(project(path = ":common", configuration = "transformProductionNeoForge")) { isTransitive = false }
 }
 
 tasks.withType<ProcessResources> {
