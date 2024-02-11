@@ -23,6 +23,10 @@ architectury {
     neoForge()
 }
 
+loom {
+    accessWidenerPath.set(project(":common").loom.accessWidenerPath)
+}
+
 val common by configurations.creating
 val shadowCommon by configurations.creating
 

@@ -24,6 +24,7 @@ architectury {
 }
 
 loom {
+    accessWidenerPath.set(project(":common").loom.accessWidenerPath)
     forge {
         mixinConfig("example-common.mixins.json")
         mixinConfig("example-forge.mixins.json")

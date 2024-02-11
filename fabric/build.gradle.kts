@@ -13,6 +13,10 @@ architectury {
     fabric()
 }
 
+loom {
+    accessWidenerPath.set(project(":common").loom.accessWidenerPath)
+}
+
 val minecraftVersion: String by extra
 val fabricApiVersion: String by extra
 val fabricLoaderVersion: String by extra
