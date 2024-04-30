@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="${neoforgeLoaderRange}"
+loaderVersion="[3.0,)"
 license="MIT"
 issueTrackerURL="${modIssueTracker}"
 
@@ -26,14 +26,14 @@ ${modDescription}
 
 [[dependencies.example]]
    modId="neoforge"
-   mandatory=true
+   type="required"
    versionRange="${neoforgeLoaderRange}"
    ordering="NONE"
    side="BOTH"
 
 [[dependencies.example]]
    modId="minecraft"
-   mandatory=true
+   type="required"
    versionRange="${neoforgeMinecraftVersionRange}"
    ordering="NONE"
    side="BOTH"

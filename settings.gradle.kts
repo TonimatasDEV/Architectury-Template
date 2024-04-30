@@ -10,4 +10,4 @@ pluginManagement {
 }
 
 include("common", "fabric", "forge", "neoforge")
-rootProject.name = modName
+rootProject.name = "ArchitecturyTemplate"
