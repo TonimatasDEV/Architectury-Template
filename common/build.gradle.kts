@@ -7,3 +7,7 @@ dependencies {
 architectury {
     common("fabric", "forge", "neoforge")
 }
+
+loom {
+    accessWidenerPath.set(file("src/main/resources/example.accesswidener"))
+}
