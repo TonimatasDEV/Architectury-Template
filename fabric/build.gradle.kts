@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION", "HasPlatformType")
-
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import net.fabricmc.loom.task.RemapJarTask
 
@@ -28,8 +26,8 @@ val modIssueTracker: String by extra
 val modAuthor: String by extra
 val modDescription: String by extra
 
-val common by configurations.creating
-val shadowCommon by configurations.creating
+val common: Configuration by configurations.creating
+val shadowCommon: Configuration by configurations.creating
 
 configurations["compileClasspath"].extendsFrom(common)
 configurations["runtimeClasspath"].extendsFrom(common)
@@ -65,6 +63,6 @@ tasks.withType<ShadowJar> {
 
 tasks.withType<RemapJarTask> {
     val shadowTask = tasks.shadowJar.get()
-    input.set(shadowTask.archiveFile)
+    inputFile.set(shadowTask.archiveFile)
 }
 

@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION", "UnstableApiUsage")
-
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import net.fabricmc.loom.task.RemapJarTask
 
@@ -27,8 +25,8 @@ loom {
     accessWidenerPath.set(project(":common").loom.accessWidenerPath)
 }
 
-val common by configurations.creating
-val shadowCommon by configurations.creating
+val common: Configuration by configurations.creating
+val shadowCommon: Configuration by configurations.creating
 
 configurations["compileClasspath"].extendsFrom(common)
 configurations["runtimeClasspath"].extendsFrom(common)
@@ -64,6 +62,6 @@ tasks.withType<ShadowJar> {
 
 tasks.withType<RemapJarTask> {
     val shadowTask = tasks.shadowJar.get()
-    input.set(shadowTask.archiveFile)
+    inputFile.set(shadowTask.archiveFile)
 }
 
