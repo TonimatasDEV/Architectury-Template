@@ -12,6 +12,11 @@ architectury {
 
 loom {
     accessWidenerPath.set(project(":common").loom.accessWidenerPath)
+    
+    fabricApi.configureDataGeneration {
+        modId.set("example")
+        outputDirectory.set(rootDir.resolve("common/src/main/generated"))
+    }
 }
 
 val minecraftVersion: String by extra
