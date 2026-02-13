@@ -17,7 +17,8 @@
   "entrypoints": {
     "main": ["example.example.example.fabric.ExampleFabric"],
     "client": ["example.example.example.fabric.ExampleClientFabric"],
-    "server": ["example.example.example.fabric.ExampleServerFabric"]
+    "server": ["example.example.example.fabric.ExampleServerFabric"],
+    "fabric-datagen": ["example.example.example.fabric.data.ExampleDataGenerators"]
   },
   "mixins": [
     "example-fabric.mixins.json",
