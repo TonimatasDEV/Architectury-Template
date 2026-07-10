@@ -1,6 +1,3 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import net.fabricmc.loom.task.RemapJarTask
-
 plugins {
     id("com.gradleup.shadow")
 }
@@ -33,17 +30,17 @@ configurations["runtimeClasspath"].extendsFrom(common)
 configurations["developmentNeoForge"].extendsFrom(common)
 
 repositories {
-    maven(url = "https://maven.neoforged.net/")
+    maven(url = "https://maven.neoforged.net/releases")
 }
 
 dependencies {
     neoForge("net.neoforged:neoforge:$neoforgeVersion")
 
-    common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
+    common(project(path = ":common")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionNeoForge")) { isTransitive = false }
 }
 
-tasks.withType<ProcessResources> {
+tasks.processResources {
     val replaceProperties = mapOf(
         "modVersion" to modVersion, "modName" to modName, "modLicense" to modLicense, "modIssueTracker" to modIssueTracker,
         "neoforgeLoaderRange" to neoforgeLoaderRange, "neoforgeMinecraftVersionRange" to neoforgeMinecraftVersionRange,
@@ -55,13 +52,15 @@ tasks.withType<ProcessResources> {
     }
 }
 
-tasks.withType<ShadowJar> {
-    configurations = listOf(shadowCommon)
-    archiveClassifier.set("dev-shadow")
+tasks.jar {
+    archiveClassifier = "raw"
 }
 
-tasks.withType<RemapJarTask> {
-    val shadowTask = tasks.shadowJar.get()
-    inputFile.set(shadowTask.archiveFile)
+tasks.shadowJar {
+    dependsOn("jar")
+    configurations = listOf(shadowCommon)
+    from(zipTree(tasks.jar.get().archiveFile))
+    archiveClassifier.set(null)
 }
+
 

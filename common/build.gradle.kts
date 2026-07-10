@@ -1,7 +1,7 @@
 val fabricLoaderVersion: String by extra
 
 dependencies {
-    modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
+    implementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 }
 
 architectury {

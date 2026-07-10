@@ -1,6 +1,3 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import net.fabricmc.loom.task.RemapJarTask
-
 plugins {
     id("com.gradleup.shadow")
 }
@@ -39,16 +36,16 @@ configurations["runtimeClasspath"].extendsFrom(common)
 configurations["developmentFabric"].extendsFrom(common)
 
 dependencies {
-    modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
+    implementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
     // Dependencies (OPTIONAL)
-    modApi("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion+$minecraftVersion") // Fabric API
+    api("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion+$minecraftVersion") // Fabric API
 
-    common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
+    common(project(path = ":common")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionFabric")) { isTransitive = false }
 }
 
-tasks.withType<ProcessResources> {
+tasks.processResources {
     val replaceProperties = mapOf(
             "modVersion" to modVersion, "modName" to modName, "modLicense" to modLicense, "modIssueTracker" to modIssueTracker,
             "fabricLoaderRange" to fabricLoaderRange, "fabricMinecraftVersionRange" to fabricMinecraftVersionRange,
@@ -61,13 +58,13 @@ tasks.withType<ProcessResources> {
     }
 }
 
-tasks.withType<ShadowJar> {
+tasks.jar {
+    archiveClassifier = "raw"
+}
+
+tasks.shadowJar {
+    dependsOn("jar")
     configurations = listOf(shadowCommon)
-    archiveClassifier.set("dev-shadow")
+    from(zipTree(tasks.jar.get().archiveFile))
+    archiveClassifier.set(null)
 }
-
-tasks.withType<RemapJarTask> {
-    val shadowTask = tasks.shadowJar.get()
-    inputFile.set(shadowTask.archiveFile)
-}
-
