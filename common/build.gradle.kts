@@ -9,5 +9,5 @@ architectury {
 }
 
 loom {
-    accessWidenerPath.set(file("src/main/resources/example.accesswidener"))
+    accessWidenerPath.set(file("src/main/resources/example.classtweaker"))
 }
